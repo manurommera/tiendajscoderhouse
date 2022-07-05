@@ -14,6 +14,14 @@ class producto{
     }
 }
 
+function suma(total){
+    let cuenta = 0;
+    for(let i = 0; i < total.length; i++){
+        cuenta += total[i]
+    }
+    return cuenta
+}
+
 
 function Tienda() {
     let carrito = [];
@@ -44,7 +52,8 @@ function Tienda() {
                 numeroprod = parseInt(prompt(`Coloca el numero respectivo del producto: \n 1-> Shampoo Sólido= $1000 \n 2-> Jabon Natural= $500 \n 3-> Aceite Natural= $2000 \n 4-> Vela Aromática= $750 \n 5-> Ver total. \n 0-> Salir.`));
         }
         else if (numeroprod == 5){
-                alert("Esta es su cuenta " + "$" + carrito);
+                const precio = carrito.map(prod=>prod.precio)
+                alert("Esta es su cuenta " + "$" + suma(precio)+ "pesos.");
                 numeroprod = parseInt(prompt(`Coloca el numero respectivo del producto: \n 1-> Shampoo Sólido= $1000 \n 2-> Jabon Natural= $500 \n 3-> Aceite Natural= $2000 \n 4-> Vela Aromática= $750 \n 5-> Ver total. \n 0-> Salir.`));
         }
     }
@@ -52,10 +61,11 @@ function Tienda() {
 }
 
 
-function suma(productos){
-    const precio = producto.map(prod=>prod.precio)
-}
-
-
 
 Tienda();
+
+
+const nombreproducto = carrito.map(prod=>prod.nombre)
+
+
+
